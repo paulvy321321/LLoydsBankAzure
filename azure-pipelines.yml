@@ -12,7 +12,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '685a89fa-5a34-4de6-aaeb-055bee7257cb'
-  imageRepository: 'buildrepositorynamebuildbuildid'
+  imageRepository: 'lloyds-demo-app'
   containerRegistry: 'lloydsrepo.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
