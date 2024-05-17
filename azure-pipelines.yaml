@@ -31,6 +31,7 @@ stages:
     - task: Maven@3
       inputs:
             mavenPomFile: 'pom.xml'
+            goals: 'install'
             publishJUnitResults: true
             testResultsFiles: '**/surefire-reports/TEST-*.xml'
             javaHomeOption: 'JDKVersion'
@@ -51,8 +52,8 @@ stages:
             inputs:
               Contents: 'aks-deploy-from-acr.yaml'
               TargetFolder: '$(build.artifactstagingdirectory)'
-              - task: PublishBuildArtifacts@1
-                inputs:
+          - task: PublishBuildArtifacts@1
+            inputs:
                   PathtoPublish: '$(Build.ArtifactStagingDirectory)'
                   ArtifactName: 'drop'
                   publishLocation: 'Container'
