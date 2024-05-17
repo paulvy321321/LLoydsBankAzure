@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-springboot-app
-          image: lloydsrepo.azurecr.io/akannan1087/springboot-app:#{Build.BuildId}#
+          image: lloydsrepo.azurecr.io/paulvy321321/LLoydsBankAzure:#{Build.BuildId}#
           imagePullPolicy: Always
           ports:
             - containerPort: 8085

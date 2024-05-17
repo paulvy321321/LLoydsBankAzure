@@ -27,7 +27,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: $(vmImageName)
+      vmImage: my-personal-computer
     steps:
     - task: Maven@3
       inputs:
