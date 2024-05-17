@@ -11,6 +11,9 @@ spec:
     metadata:
       labels:
         app: lloydsazure
+
+        pool: my-personal-computer
+
     spec:
       containers:
         - name: lloydsazure
