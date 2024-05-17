@@ -6,14 +6,14 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: springboot-app
+      app: lloydsazure
   template:
     metadata:
       labels:
-        app: springboot-app
+        app: lloydsazure
     spec:
       containers:
-        - name: my-springboot-app
+        - name: lloydsazure
           image: lloydsrepo.azurecr.io/paulvy321321/LLoydsBankAzure:#{Build.BuildId}#
           imagePullPolicy: Always
           ports:
