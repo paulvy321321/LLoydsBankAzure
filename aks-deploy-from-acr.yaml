@@ -24,9 +24,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: springboot-app
-    k8s-app: springboot-app
-  name: springboot-app
+    app: lloydsazure
+    k8s-app: lloydsazure
+  name: lloydsazure
 spec:
   ports:
     - name: http
@@ -35,4 +35,4 @@ spec:
       targetPort: 8085
   type: LoadBalancer
   selector:
-    app: springboot-app
+    app: lloydsazure
