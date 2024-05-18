@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: lloydsazure
-          image: lloydsrepo.azurecr.io/paulvy321321/LLoydsBankAzure:#{Build.BuildId}#
+          image: lloydsrepo.azurecr.io/lloyds-demo-app:paulvyid/lloyds-azure-deployment:#{Build.BuildId}#
           imagePullPolicy: Always
           ports:
             - containerPort: 8085
