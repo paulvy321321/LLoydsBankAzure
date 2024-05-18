@@ -28,6 +28,11 @@ stages:
     displayName: Build
     pool: my-new-agent-lloyds
     steps:
+    - task: JavaToolInstaller@0
+      inputs:
+          versionSpec: '17.0.11'
+          jdkArchitectureOption: 'x64'
+          jdkSourceOption: 'PreInstalled'
     - task: Maven@4
       inputs:
             mavenPomFile: 'pom.xml'
@@ -35,7 +40,7 @@ stages:
             publishJUnitResults: true
             testResultsFiles: '**/surefire-reports/TEST-*.xml'
             javaHomeOption: 'JDKVersion'
-            jdkVersionOption: '1.17'
+            jdkVersionOption: '17.0.11'
             mavenVersionOption: 'Default'
             mavenAuthenticateFeed: false
             effectivePomSkip: false
