@@ -26,7 +26,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool: my-personal-computer
+    pool: my-new-agent-lloyds
     steps:
     - task: Maven@4
       inputs:

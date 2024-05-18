@@ -12,7 +12,7 @@ spec:
       labels:
         app: lloydsazure
 
-        pool: my-personal-computer
+        pool: my-new-agent-lloyds
 
     spec:
       containers:
@@ -21,6 +21,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8085
+
 # service type loadbalancer
 ---
 apiVersion: v1
