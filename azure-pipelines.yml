@@ -28,7 +28,7 @@ stages:
     displayName: Build
     pool: my-personal-computer
     steps:
-    - task: Maven@3
+    - task: Maven@4
       inputs:
             mavenPomFile: 'pom.xml'
             goals: 'install'
