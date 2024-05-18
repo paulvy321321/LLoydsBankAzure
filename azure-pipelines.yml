@@ -28,26 +28,14 @@ stages:
     displayName: Build
     pool: my-new-agent-lloyds
     steps:
-    - script: |
-            which java
-            java -version
-            echo JAVA_HOME_8_x86=$JAVA_HOME_8_x86
-            echo JAVA_HOME=$JAVA_HOME
-            javac
-          displayName: 'Show Release Number'
-    - task: JavaToolInstaller@0
-      inputs:
-          versionSpec: '17'
-          jdkArchitectureOption: 'x64'
-          jdkSourceOption: 'PreInstalled'
-    - task: Maven@4
+    - task: Maven@3
       inputs:
             mavenPomFile: 'pom.xml'
             goals: 'install'
             publishJUnitResults: true
             testResultsFiles: '**/surefire-reports/TEST-*.xml'
             javaHomeOption: 'JDKVersion'
-            jdkVersionOption: '17.0.11'
+           # jdkVersionOption: '1.17'
             mavenVersionOption: 'Default'
             mavenAuthenticateFeed: false
             effectivePomSkip: false
