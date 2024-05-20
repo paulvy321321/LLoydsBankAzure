@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: lloyds-azure-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: lloydsazure
@@ -23,11 +23,11 @@ spec:
             - containerPort: 8085
           resources:
            requests:
-            memory: "128Mi"
+            memory: "64Mi"
             cpu: 250m
            limits:
-            memory: "256Mi"
-            cpu: 1000m
+            memory: "128Mi"
+            cpu: 500m
 
 
 # service type loadbalancer
