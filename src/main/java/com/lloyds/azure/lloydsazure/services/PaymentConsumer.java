@@ -1,4 +1,3 @@
-/*
 package com.lloyds.azure.lloydsazure.services;
 
 
@@ -18,4 +17,3 @@ public class PaymentConsumer {
         logger.info(String.format("$$$ -> Consumed Message -> %s",message));
     }
 }
-*/
