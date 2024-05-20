@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class paymentPublishController {
-    @GetMapping("hello-world")
+public class PaymentController {
+    @GetMapping("lloyds")
     public String HelloWorld(){
-       return "Yes I am in";
+       return "Demo for Lloyds";
     }
 }
