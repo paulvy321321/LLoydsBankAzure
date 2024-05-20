@@ -50,9 +50,14 @@ stages:
         tags: |
           $(tag)
     - task: CopyFiles@2
-      displayName: Copy YAML Files
+      displayName: Copy Deployment YAML Files
       inputs:
         Contents: 'aks-deploy-from-acr.yaml'
+        TargetFolder: '$(build.artifactstagingdirectory)'
+    - task: CopyFiles@2
+      displayName: Copy HPA YAML Files
+      inputs:
+        Contents: 'aks-hpa-scaling.yaml'
         TargetFolder: '$(build.artifactstagingdirectory)'
     - task: PublishBuildArtifacts@1
       inputs:
