@@ -11,10 +11,19 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   jpa:
     database: POSTGRESQL
-    show-sql: true
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: jdbc:postgresql://localhost:5432/LloydsDB
+    url: jdbc:postgresql://localhost:52/LloydsDB
     username: lloydsAPI
     password: Testing1
     driverClassName: org.postgresql.Driver
-  continue-on-error: true
+    hikari:
+      minimum-idle: 0
+      maximum-pool-size: 15
+      connection-timeout: 10000 #10s
+      idle-timeout: 300000 #5m
+      max-lifetime: 600000 #10m
+      initialization-fail-timeout: -1
+      validation-timeout: 1000 #1s
+      continue-on-error: true
