@@ -13,17 +13,10 @@ spring:
     database: POSTGRESQL
     show-sql: false
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
   datasource:
     url: jdbc:postgresql://localhost:52/LloydsDB
     username: lloydsAPI
     password: Testing1
     driverClassName: org.postgresql.Driver
-    hikari:
-      minimum-idle: 0
-      maximum-pool-size: 15
-      connection-timeout: 10000 #10s
-      idle-timeout: 300000 #5m
-      max-lifetime: 600000 #10m
-      initialization-fail-timeout: -1
-      validation-timeout: 1000 #1s
-      continue-on-error: true
