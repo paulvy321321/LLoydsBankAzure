@@ -1,10 +1,7 @@
 package com.lloyds.azure.lloydsazure.paymentsModel;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
-
-import jakarta.persistence.Entity;
 
 @Entity
 @Data

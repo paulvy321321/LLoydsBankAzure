@@ -1,6 +1,7 @@
 package com.lloyds.azure.lloydsazure.paymentServices;
 
 
+import com.lloyds.azure.lloydsazure.Exception.GenericErrors;
 import com.lloyds.azure.lloydsazure.paymentRepository.PaymentRepo;
 import com.lloyds.azure.lloydsazure.paymentsModel.Payments;
 import org.slf4j.Logger;
@@ -24,9 +25,16 @@ public class PaymentConsumer {
         logger.info(String.format("$$$ -> Consumed Message -> %s", message));
     }
 
-    public Payments saveEmployee(Payments employee) {
-        Payments savedEmployee = paymentRepo.save(employee);
-        logger.info("Employee with id: {} saved successfully", employee.getId());
-        return savedEmployee;
+    public String saveTransactionDetails(Payments transactions) throws GenericErrors {
+        Payments savedTxns;
+        try {
+            savedTxns = paymentRepo.save(transactions);
+            logger.info("Payment Transactions: {} saved successfully", transactions.getId());
+        } catch (Exception e) {
+            logger.error("Unable to save the transactions due to :", e.getMessage());
+            throw new GenericErrors(e.getMessage());
+        }
+        return "transactions saved successfully";
     }
 }
+
