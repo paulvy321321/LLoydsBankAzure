@@ -25,10 +25,15 @@ public class PaymentConsumer {
         logger.info(String.format("$$$ -> Consumed Message -> %s", message));
     }
 
+    @KafkaListener(topics = "jsonpayments", groupId = "group_id")
+    public void jsonConsume(Payments payments) {
+
+        logger.info(String.format("User created -> %s", payments.getAmount()));
+    }
+
     public String saveTransactionDetails(Payments transactions) throws GenericErrors {
-        Payments savedTxns;
         try {
-            savedTxns = paymentRepo.save(transactions);
+            paymentRepo.save(transactions);
             logger.info("Payment Transactions: {} saved successfully", transactions.getId());
         } catch (Exception e) {
             logger.error("Unable to save the transactions due to :", e.getMessage());
