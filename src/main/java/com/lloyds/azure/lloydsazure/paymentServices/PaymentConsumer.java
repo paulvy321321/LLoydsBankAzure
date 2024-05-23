@@ -4,6 +4,7 @@ package com.lloyds.azure.lloydsazure.paymentServices;
 import com.lloyds.azure.lloydsazure.Exception.GenericErrors;
 import com.lloyds.azure.lloydsazure.paymentRepository.PaymentRepo;
 import com.lloyds.azure.lloydsazure.paymentsModel.Payments;
+import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +26,11 @@ public class PaymentConsumer {
         logger.info(String.format("$$$ -> Consumed Message -> %s", message));
     }
 
-    @KafkaListener(topics = "jsonpayments", groupId = "group_id")
-    public void jsonConsume(Payments payments) {
 
-        logger.info(String.format("User created -> %s", payments.getAmount()));
+    @KafkaListener(topics = "jsonpayments", groupId = "group_id")
+    public void jsonConsume(Payments payments)throws GenericErrors {
+        saveTransactionDetails(payments);
+        logger.info(String.format("User created -> %s", payments));
     }
 
     public String saveTransactionDetails(Payments transactions) throws GenericErrors {
